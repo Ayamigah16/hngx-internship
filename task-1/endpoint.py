@@ -23,10 +23,10 @@ def get_data():
     utc_time = datetime.datetime.now(pytz.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
     # get the github URL of the "endpoint.py" file
-    github_file_url = ""
+    github_file_url = "https://github.com/Ayamigah16/hngx-internship/blob/main/task-1/endpoint.py"
 
     # get the github URL of my repo source codes
-    github_repo_url = ""
+    github_repo_url = "https://github.com/Ayamigah16/hngx-internship"
 
     # creating the JSON response
     response_data = {
