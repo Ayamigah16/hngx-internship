@@ -2,7 +2,6 @@
 from flask import Flask, request, jsonify
 import datetime
 import pytz
-from collections import OrderedDict
 
 # creating the application
 app = Flask(__name__)
@@ -30,18 +29,17 @@ def get_data():
     github_repo_url = "https://github.com/Ayamigah16/hngx-internship"
 
     # Manually construct the JSON response with the desired order
-    response_data = f'''{{
-    "slack_name": "{slack_name}",
-    "current_day": "{current_day}",
-    "utc_time": "{utc_time}",
-    "track": "{track}",
-    "github_file_url": "{github_file_url}",
-    "github_repo_url": "{github_repo_url}",
-    "status_code": 200
-    }}'''
+    response_data = {
+        "slack_name": slack_name,
+        "current_day": current_day,
+        "utc_time": utc_time,
+        "track": track,
+        "github_file_url": github_file_url,
+        "github_repo_url": github_repo_url,
+        "status_code": 200
+    }
 
-    response_json = json.dumps(response_data, indent=2)
     return jsonify(response_data), 200, {'Content-Type': 'application/json; charset=utf-8'}
 
 if __name__ == "__main__":
-    app.run()                                                 
+    app.run()
